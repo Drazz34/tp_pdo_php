@@ -102,13 +102,13 @@ $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 <?php 
 echo "Ma liste de jeux vidéos : <br><br>";
 foreach ($result as $value) {
-    echo "- " . $value['nom'] . " sur la console " . $value['console'] . ".<br>";
+    echo "- " . $value['nom_jeu'] . " sur la console " . $value['console_id'] . ".<br>";
     echo '<a href="showOne.php?id=' . $value['id'] . '">Voir ce jeu en détail</a><br><br>';
 }
 
 foreach ($result as $row) {
     ?>
-    <p><?= $row['nom'] ?> -
+    <p><?= $row['nom_jeu'] ?> -
     <a href="delete.php?id=<?= $row['id'] ?>">Supprimer</a>
     </p>
     <?php
