@@ -7,7 +7,9 @@ include_once "connexion.php";
 if(isset($_GET['id']))
 {
 $id = filter_input(INPUT_GET, "id");
-$statement = $pdo->query("SELECT * FROM `mes_jeux` WHERE id = " . $id);
+$statement = $pdo->prepare("SELECT * FROM `mes_jeux` WHERE id = :id");
+$statement->bindParam(":id", $id);
+$statement->execute();
 
 // Récupère le résultat
 
